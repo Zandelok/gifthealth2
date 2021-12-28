@@ -17,10 +17,10 @@ class DataCollector
 
   private
 
-  def grouping(array)
+  def grouping(line)
     hash = Hash.new
 
-    array.split(/\n/).each do |str|
+    line.split(/\n/).each do |str|
       ##
       # place each column in the required array and
       # call hasherize! method to make a hash.
