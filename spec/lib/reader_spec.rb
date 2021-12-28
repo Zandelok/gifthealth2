@@ -8,9 +8,10 @@ describe Reader do
 
     context 'when valid file' do
       let(:file) { 'spec/fixtures/test.txt' }
-      let(:result) { 
+
+      let(:result) do
         "Nick A created\nNick A filled\nMark B filled\nMark B filled\nMark B created\nMark B filled\nMark C filled"
-       }
+      end
 
       it 'return a string' do
         expect(subject).to eq(result)

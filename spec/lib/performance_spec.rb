@@ -13,7 +13,10 @@ describe Performance do
 
     context 'when valid file' do
       let(:file) { 'spec/fixtures/test.txt' }
-      let(:result) { { "Mark" => [1, 5], "Nick" => [1, 5] } }
+
+      let(:result) do
+        { "Mark" => [1, 5], "Nick" => [1, 5] }
+      end
 
       it 'return a hash of data and print values' do
         expect(subject).to eq(result)

@@ -7,8 +7,13 @@ describe Printer do
     subject { described_class.new(hash).call }
 
     context 'when valid hash' do
-      let(:hash) { { "Mark" => [1, 5], "Nick" => [1, 5] } }
-      let(:result) { { "Mark" => [1, 5], "Nick" => [1, 5] } }
+      let(:hash) do
+        { "Mark" => [1, 5], "Nick" => [1, 5] }
+      end
+
+      let(:result) do
+        { "Mark" => [1, 5], "Nick" => [1, 5] }
+      end
 
       it 'return a hash of data and print values' do
         expect(subject).to eq(result)

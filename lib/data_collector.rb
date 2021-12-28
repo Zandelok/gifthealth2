@@ -39,7 +39,7 @@ class DataCollector
     else
       ##
       # push to or create array of events.
-      hash[patient_name][drug_name] ? hash[patient_name][drug_name].push(event_name) : hash[patient_name][drug_name] = [event_name]
+      hash[patient_name][drug_name] = hash[patient_name][drug_name] ? hash[patient_name][drug_name] + [event_name] : [event_name]
     end
   end
 end

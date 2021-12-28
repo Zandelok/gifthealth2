@@ -20,7 +20,11 @@ class Printer
   #  Income output differs depending on whether a negative or positive amount has been received.
   def printing(hash)
     hash.each do |key, value|
-      p "#{key}: #{value.first} fills #{value.last < 0 ? "-$#{value.last.abs}" : "$#{value.last}"} income"
+      p "#{key}: #{value.first} fills #{plus_minus(value.last)} income"
     end
+  end
+
+  def plus_minus(v)
+    v < 0 ? "-$#{v.abs}" : "$#{v}"
   end
 end

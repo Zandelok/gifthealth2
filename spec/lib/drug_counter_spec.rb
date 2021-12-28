@@ -7,13 +7,16 @@ describe DrugCounter do
     subject { described_class.new(hash).call }
 
     context 'when valid hash' do
-      let(:hash) {{
-          "Mark" => { "B" => ["filled", "filled", "created", "filled"], 
+      let(:hash) do 
+        { "Mark" => { "B" => ["filled", "filled", "created", "filled"], 
             "C" => ["filled"] }, 
-            "Nick" => { "A" => ["created", "filled"] }
-        }}
-      let(:result) { { "Mark" => [[1, 5], [0, 0]], 
-        "Nick" => [[1, 5]] } }
+            "Nick" => { "A" => ["created", "filled"] } }
+      end
+
+      let(:result) do
+        { "Mark" => [[1, 5], [0, 0]], 
+        "Nick" => [[1, 5]] }
+      end
 
       it 'return a hash' do
         expect(subject).to eq(result)
