@@ -10,13 +10,14 @@ describe DataCollector do
       let(:str) { 
         "Nick A created\nNick A filled\nMark B filled\nMark B filled\nMark B created\nMark B filled\nMark C filled" 
       }
+      let(:result) { {
+        "Mark" => { "B" => ["filled", "filled", "created", "filled"], 
+          "C" => ["filled"] }, 
+          "Nick" => { "A" => ["created", "filled"] }
+      } }
 
       it 'return a hash' do
-        expect(subject).to eq({
-          "Mark" => { "B" => ["filled", "filled", "created", "filled"], 
-            "C" => ["filled"] }, 
-            "Nick" => { "A" => ["created", "filled"] }
-        })
+        expect(subject).to eq(result)
       end
     end
   end

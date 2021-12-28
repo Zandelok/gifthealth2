@@ -2,14 +2,14 @@
 
 require_relative '../lib/reader.rb'
 require_relative '../lib/data_collector.rb'
-require_relative '../lib/counter_by_drug.rb'
+require_relative '../lib/drug_counter.rb'
 require_relative '../lib/total_income.rb'
 require_relative '../lib/printer.rb'
 require_relative '../lib/performance.rb'
 
 unless ARGV.any?
   warn 'Please, write folder name'
-  exit[1]
+  exit(1)
 end
 
-Performance.new(ARGV.first, Reader, DataCollector, CounterByDrug, TotalIncome, Printer).perform
+Performance.new(ARGV.first, Reader, DataCollector, DrugCounter, TotalIncome, Printer).perform

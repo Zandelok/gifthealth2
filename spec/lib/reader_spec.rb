@@ -3,16 +3,17 @@
 require_relative '../../lib/reader.rb'
 
 describe Reader do
-  describe '#file_read' do
-    subject { described_class.new(file).file_read }
+  describe '#call' do
+    subject { described_class.new(file).call }
 
     context 'when valid file' do
       let(:file) { 'spec/fixtures/test.txt' }
+      let(:result) { 
+        "Nick A created\nNick A filled\nMark B filled\nMark B filled\nMark B created\nMark B filled\nMark C filled"
+       }
 
       it 'return a string' do
-        expect(subject).to eq(
-          "Nick A created\nNick A filled\nMark B filled\nMark B filled\nMark B created\nMark B filled\nMark C filled"
-        )
+        expect(subject).to eq(result)
       end
     end
 

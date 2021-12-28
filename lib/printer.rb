@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+##
+# This class output the received data in accordance with the requirements.
 class Printer
   attr_reader :hash_of_data
 
@@ -13,17 +15,12 @@ class Printer
 
   private
 
+  ##
+  # print PatientName, total fills and income.
+  #  Income output differs depending on whether a negative or positive amount has been received.
   def printing(hash)
     hash.each do |key, value|
-      value.last < 0 ? negative_value(key, value) : positive_value(key, value)
+      p "#{key}: #{value.first} fills #{value.last < 0 ? "-$#{value.last.abs}" : "$#{value.last}"} income"
     end
-  end
-
-  def negative_value(key, value)
-    p "#{key}: #{value.first} fills -$#{value.last.abs} income"
-  end
-
-  def positive_value(key, value)
-    p "#{key}: #{value.first} fills $#{value.last} income"
   end
 end

@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require_relative '../../lib/counter_by_drug.rb'
+require_relative '../../lib/drug_counter.rb'
 
-describe CounterByDrug do
+describe DrugCounter do
   describe '#call' do
     subject { described_class.new(hash).call }
 
@@ -12,12 +12,11 @@ describe CounterByDrug do
             "C" => ["filled"] }, 
             "Nick" => { "A" => ["created", "filled"] }
         }}
+      let(:result) { { "Mark" => [[1, 5], [0, 0]], 
+        "Nick" => [[1, 5]] } }
 
       it 'return a hash' do
-        expect(subject).to eq(
-          { "Mark" => [[1, 5], [0, 0]], 
-          "Nick" => [[1, 5]]}
-        )
+        expect(subject).to eq(result)
       end
     end
   end
