@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-##
-# This class accepts file_name and all classes in order to complete the task.
-class Performance
+require_relative 'application'
+
+class Performance < Application
   attr_reader :file, :reader, :data_collector, :counter, :total_income, :printer
 
   def initialize(file, reader, data_collector, counter, total_income, printer)
@@ -14,13 +14,11 @@ class Performance
     @printer = printer
   end
 
-  ##
-  # A perform method, that will use all classes and methods in the required order.
-  def perform
-    valid_file = reader.new(file).call
-    collected_data = data_collector.new(valid_file).call
-    interim_result = counter.new(collected_data).call
-    final_result = total_income.new(interim_result).call
-    printer.new(final_result).call
+  def call
+    valid_file = reader.call(file)
+    collected_data = data_collector.call(valid_file)
+    interim_result = counter.call(collected_data)
+    final_result = total_income.call(interim_result)
+    printer.call(final_result)
   end
 end

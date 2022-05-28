@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require_relative '../../lib/drug_counter.rb'
+require_relative '../../lib/drug_counter'
 
 describe DrugCounter do
   describe '#call' do
-    subject { described_class.new(hash).call }
+    subject { described_class.call(hash) }
 
     context 'when valid hash' do
       let(:hash) do 

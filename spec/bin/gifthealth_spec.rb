@@ -12,7 +12,7 @@ RSpec.describe 'script' do
   context 'when file not provided' do
     let(:file) {}
 
-    it { expect(errors).to eq "Please, write folder name\n" }
+    it { expect(errors).to eq "Please, write file name\n" }
   end
 
   context 'when invalid file' do

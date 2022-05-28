@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require_relative '../../lib/printer.rb'
+require_relative '../../lib/printer'
 
 describe Printer do
   describe '#call' do
-    subject { described_class.new(hash).call }
+    subject { described_class.call(hash) }
 
     context 'when valid hash' do
       let(:hash) do

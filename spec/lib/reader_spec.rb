@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require_relative '../../lib/reader.rb'
+require_relative '../../lib/reader'
 
 describe Reader do
   describe '#call' do
-    subject { described_class.new(file).call }
+    subject { described_class.call(file) }
 
     context 'when valid file' do
       let(:file) { 'spec/fixtures/test.txt' }

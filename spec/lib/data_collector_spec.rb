@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require_relative '../../lib/data_collector.rb'
+require_relative '../../lib/data_collector'
 
 describe DataCollector do
   describe '#call' do
-    subject { described_class.new(str).call }
+    subject { described_class.call(str) }
 
     context 'when valid string' do
       let(:str) do

@@ -1,15 +1,15 @@
 #!/usr/bin/env ruby
 
-require_relative '../lib/reader.rb'
-require_relative '../lib/data_collector.rb'
-require_relative '../lib/drug_counter.rb'
-require_relative '../lib/total_income.rb'
-require_relative '../lib/printer.rb'
-require_relative '../lib/performance.rb'
+require_relative '../lib/reader'
+require_relative '../lib/data_collector'
+require_relative '../lib/drug_counter'
+require_relative '../lib/total_income'
+require_relative '../lib/printer'
+require_relative '../lib/performance'
 
 unless ARGV.any?
-  warn 'Please, write folder name'
-  exit(1)
+  warn 'Please, write file name'
+  exit
 end
 
-Performance.new(ARGV.first, Reader, DataCollector, DrugCounter, TotalIncome, Printer).perform
+Performance.call(ARGV.first, Reader, DataCollector, DrugCounter, TotalIncome, Printer)
